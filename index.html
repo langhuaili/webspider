@@ -1,0 +1,30 @@
+<meta  charset="UTF-8"/>
+采集地址:<input name="target_url"/><button id="spider">采集</button>
+
+
+
+
+
+<div id="text-area">
+    采集内容区
+</div>
+
+<script
+    src="https://code.jquery.com/jquery-2.2.4.js"
+    integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+
+<script>
+  $('#spider').click(function (){
+     var url= $('input[name="target_url"]').val()
+      $.ajax({
+          url:"./spider.php",
+          data:{
+              url:url
+          },
+          success:function (res){
+              $("#text-area").html(res)
+          }
+      })
+  })
+</script>
